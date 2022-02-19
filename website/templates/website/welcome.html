@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block title %}Welcome {%endblock %}
+
+{% block content %}
+<!--{% load static %}-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Welcome!</title>-->
+<!--    <link rel="stylesheet" href="{% static 'website/style.css' %}">-->
+<!--</head>-->
+<!--<body>-->
+<h1>Welcome to the meeting planner!</h1>
+    <p>This is the demo application for the course<em>jango-getting_started</em>
+    on <a href="https://www.pluralsight.com">pluralsight</a>
+    </p>
+    <img src="{% static 'website/cal.jpg' %}" width="100px">
+<h2>Meetings</h2>
+<u2>
+    {% for meeting in meetings %}
+        <li>
+            <a href="{% url 'detail' meeting.id %}">
+                {{meeting.title}}
+            </a>
+         </li>
+    {% endfor %}
+</u2>
+
+    <a href="{% url 'rooms' %}">Rooms List </a>
+
+{% endblock %}
+<!--</body>-->
+<!--</html>-->
